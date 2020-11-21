@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './style.css';
 
-const Joke = () => {
-  const [upLikes, setUpLikes] = useState(0);
-  const [downLikes, setDownLikes] = useState(0);
+const Joke = (props) => {
+  const [upLikes, setUpLikes] = useState(props.likes);
+  const [downLikes, setDownLikes] = useState(props.dislikes);
 
   const addLike = () => {
     setUpLikes(upLikes + 1);
@@ -19,15 +19,14 @@ const Joke = () => {
         <div className="joke">
           <div className="joke__body">
             <div className="joke__user">
-              <img className="user-avatar" src="assets/img/user01.png" />
-              <p className="user-name">Neroxx</p>
+              <img
+                className="user-avatar"
+                src={`../assets/img-users/${props.userId}.png`}
+              />
+              <p className="user-name">{props.userName}</p>
             </div>
 
-            <p className="joke__text">
-              The secret service isn't allowed to yell "Get down!" anymore when
-              the president is about to be attacked. Now they have to yell
-              "Donald, duck!"
-            </p>
+            <p className="joke__text">{props.text}</p>
           </div>
           <div className="joke__likes">
             <button
