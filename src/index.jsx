@@ -6,6 +6,7 @@ import './jokes.js';
 import Joke from './Joke/Joke.jsx';
 
 const App = () => {
+let props = jokes.map((joke) => 
   return (
     <>
       <Joke
@@ -17,6 +18,6 @@ const App = () => {
       />
     </>
   );
-};
+)};
 
 render(<App />, document.querySelector('#app'));
